@@ -1,5 +1,5 @@
-// Titles: https://omdbapi.com/?s=thor&page=1&apikey=fc1fef96
-// details: http://www.omdbapi.com/?i=tt3896198&apikey=fc1fef96
+// Titles: https://omdbapi.com/?s=thor&page=1&apikey=451192ea
+// details: http://www.omdbapi.com/?i=tt3896198&apikey=451192ea
 
 const movieSearchBox = document.getElementById('movie-search-box');
 const searchList = document.getElementById('search-list');
@@ -7,8 +7,9 @@ const resultGrid = document.getElementById('result-grid');
 
 // load movies from API
 async function loadMovies(searchTerm){
-    let apikey = config.API_KEY;
-    const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=${apikey}`;
+    //let apikey = config.API_KEY;
+    let alphakey = "451192ea"
+    const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=${alphakey}`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
     // console.log(data.Search);
@@ -57,9 +58,10 @@ function loadMovieDetails(){
             // console.log(movie.dataset.id);
             searchList.classList.add('hide-search-list');
             movieSearchBox.value = "";
-            let apikey = config.API_KEY;
+            //let apikey = config.API_KEY;
             // let URL = 'http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=451192ea'
-            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=${apikey}`);
+            let alphakey = "451192ea"
+            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=${alphakey}`);
             const movieDetails = await result.json();
             // console.log(movieDetails);
             displayMovieDetails(movieDetails);
